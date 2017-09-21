@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun reportHome(view: View) {
-        val intent = Intent(applicationContext, AppSettings::class.java)
+        val intent = Intent(applicationContext, MainReport::class.java)
         intent.putExtra("main", "From Main Screen")
         // startActivity(intent) // Used for simple intents
         startActivityForResult(intent, REPORT_CODE)
