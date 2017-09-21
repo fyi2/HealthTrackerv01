@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun testHome(view: View){
-        val intent = Intent(applicationContext, AppSettings::class.java)
+        val intent = Intent(applicationContext, TestActivity::class.java)
         intent.putExtra("main", "From Main Screen")
         startActivityForResult(intent, TEST_CODE)
 
