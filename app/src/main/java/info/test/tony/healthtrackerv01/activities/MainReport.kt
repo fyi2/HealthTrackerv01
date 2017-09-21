@@ -28,14 +28,14 @@ class MainReport : AppCompatActivity() {
         finish()
         // startActivity(intent) Used for simple intent calls.
     }
-/*
+
     fun runReports(view: View) {
-        val intent = Intent(applicationContext, Sub1Report::class.java)
+        val intent = Intent(applicationContext, TabbedReport::class.java)
         intent.putExtra("main", "From Main REPORT Screen")
         startActivityForResult(intent, REPORT1_CODE)
 
     }
-*/
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         // requestCode = Integer we decide on
         //resultCode = Android Code

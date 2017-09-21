@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.AppSettings" />
-        <activity android:name=".activities.MainReport"></activity>
+        <activity android:name=".activities.MainReport" />
+        <activity android:name=".activities.TabbedReport"></activity>
     </application>
 
 </manifest>
