@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     val SETTINGS_CODE: Int = 1 // can be any number
     val REPORT_CODE: Int = 2
     val TEST_CODE: Int = 3
+    val STARTSTATUS_CODE: Int = 4
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +75,14 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("main", "From Main Screen")
         // startActivity(intent) // Used for simple intents
         startActivityForResult(intent, REPORT_CODE)
+
+    }
+
+    fun startStatus(view: View) {
+        val intent = Intent(applicationContext, MainReport::class.java)
+        intent.putExtra("main", "From Main Screen")
+        // startActivity(intent) // Used for simple intents
+        startActivityForResult(intent, STARTSTATUS_CODE)
 
     }
     fun testHome(view: View){
