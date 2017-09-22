@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startStatus(view: View) {
-        val intent = Intent(applicationContext, MainReport::class.java)
+        val intent = Intent(applicationContext, AddStatus::class.java)
         intent.putExtra("main", "From Main Screen")
         // startActivity(intent) // Used for simple intents
         startActivityForResult(intent, STARTSTATUS_CODE)
