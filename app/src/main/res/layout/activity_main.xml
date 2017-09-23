@@ -30,7 +30,7 @@
         android:onClick="reportHome"
         app:layout_constraintBottom_toBottomOf="@+id/homeID"
         app:layout_constraintStart_toEndOf="@+id/homeID"
-        app:srcCompat="@drawable/ic_developer_board_black_24dp" />
+        app:srcCompat="@drawable/ic_dashboard_black_24dp" />
 
     <ImageView
         android:id="@+id/testID"

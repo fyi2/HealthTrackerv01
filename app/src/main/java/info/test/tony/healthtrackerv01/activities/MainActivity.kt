@@ -8,19 +8,17 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import info.test.tony.healthtrackerv01.R
+import info.test.tony.healthtrackerv01.data.REPORT_CODE
+import info.test.tony.healthtrackerv01.data.SETTINGS_CODE
+import info.test.tony.healthtrackerv01.data.STARTSTATUS_CODE
+import info.test.tony.healthtrackerv01.data.TEST_CODE
 
 class MainActivity : AppCompatActivity() {
-    // Request code for returning values from other activities
-    val SETTINGS_CODE: Int = 1 // can be any number
-    val REPORT_CODE: Int = 2
-    val TEST_CODE: Int = 3
-    val STARTSTATUS_CODE: Int = 4
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -37,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("main", "From the main screen")
             // startActivity(intent) // Used for simple intents
             startActivityForResult(intent, SETTINGS_CODE)
-
         }
         return super.onOptionsItemSelected(item)
     }
@@ -75,7 +72,6 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("main", "From Main Screen")
         // startActivity(intent) // Used for simple intents
         startActivityForResult(intent, REPORT_CODE)
-
     }
 
     fun startStatus(view: View) {
@@ -83,12 +79,10 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("main", "From Main Screen")
         // startActivity(intent) // Used for simple intents
         startActivityForResult(intent, STARTSTATUS_CODE)
-
     }
     fun testHome(view: View){
         val intent = Intent(applicationContext, TestActivity::class.java)
         intent.putExtra("main", "From Main Screen")
         startActivityForResult(intent, TEST_CODE)
-
     }
 }

@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textView4"
             android:layout_centerVertical="true"
+            android:onClick="loadQ1"
             android:backgroundTint="@android:color/holo_green_dark"
             android:text="Enter Status"
             android:focusableInTouchMode="true"

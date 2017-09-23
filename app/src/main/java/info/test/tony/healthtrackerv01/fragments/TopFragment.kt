@@ -22,4 +22,5 @@ class TopFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_top, container, false)
     }
 
-}// Required empty public constructor
+
+}

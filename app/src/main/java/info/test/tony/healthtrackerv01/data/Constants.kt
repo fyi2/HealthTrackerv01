@@ -21,3 +21,10 @@ val KEY_MOOD:String = "mood"
 val KEY_ENTRYDATE:String = "entry_date"
 val KEY_NAPS:String = "naps"
 val KEY_GETUPTIME:String = "get_up_time"
+
+
+// Request code for returning values from other activities
+val SETTINGS_CODE: Int = 1 // can be any number
+val REPORT_CODE: Int = 2
+val TEST_CODE: Int = 3
+val STARTSTATUS_CODE: Int = 4

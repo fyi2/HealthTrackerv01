@@ -2,12 +2,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="info.test.tony.healthtrackerv01.fragments.Q3Fragment">
+    tools:context="info.test.tony.healthtrackerv01.fragments.Q1Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/depressionViewID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="depression"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/depressionSeekBarID"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/depressionViewID"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:thumb="@drawable/ic_touch_app_black_24dp"
+            android:max="5"
+            android:progress="1" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/depressionSeekBarID"
+            android:layout_marginTop="18dp"
+            android:text="@string/test" />
+
+        <TextView
+            android:id="@+id/depressionStatusID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView12"
+            android:layout_marginTop="18dp"
+            android:text="@string/anxiety_status" />
+
+        <Button
+            android:id="@+id/depressionButtonID"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/depressionSeekBarID"
+            android:layout_below="@+id/depressionStatusID"
+            android:layout_marginTop="17dp"
+            android:text="Next"
+            android:onClick="loadQ4"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 </FrameLayout>
+
