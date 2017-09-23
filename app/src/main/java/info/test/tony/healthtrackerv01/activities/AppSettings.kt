@@ -46,7 +46,7 @@ class AppSettings : AppCompatActivity() {
             sharedPreferences.edit().putBoolean("alcohol", alcoholDefault).apply()
             sharedPreferences.edit().putBoolean("yesterday", yesterdayDefault).apply()
             sharedPreferences.edit().putInt("medication", medicationDefault).apply()
-            sharedPreferences.edit().putInt("weighDay", weighDayDefault).apply()
+            sharedPreferences.edit().putInt("weight", weighDayDefault).apply()
             sharedPreferences.edit().putString("initialized", "initialized").apply()
             println("PRINT:Initializing Preferences")
             println(sharedPreferences.all)
@@ -62,7 +62,7 @@ class AppSettings : AppCompatActivity() {
         var getUpSetting = sharedPreferences.getBoolean("getup", true)
         var smokingSetting = sharedPreferences.getBoolean("smoking", true)
         var alcoholSetting = sharedPreferences.getBoolean("alcohol", true)
-        var weighDaySetting = sharedPreferences.getInt("weighday", 0)
+        var weighDaySetting = sharedPreferences.getInt("weight", 0)
 
         // set Default Day
         var yesterdayBox : RadioButton =  findViewById(R.id.yesterdayID)
@@ -186,20 +186,18 @@ class AppSettings : AppCompatActivity() {
     fun setWeighDay(view: View) {
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
         var clickedButton : RadioButton = view as RadioButton
-        var none : RadioButton = weighNoneID
-        var monday : RadioButton = weighMondayID
-        var tuesday : RadioButton = weighTuesdayID
-        var wednesday: RadioButton = weighWednesdayID
-        var thursday: RadioButton = weightThursdayID
-        var friday : RadioButton  = weighFridayID
+        val clickedButtonID: Int = clickedButton.id
 
-        when(clickedButton){
-            none -> sharedPreferences.edit().putInt("weight", 0).apply()
-            monday -> sharedPreferences.edit().putInt("weight", 1).apply()
-            tuesday -> sharedPreferences.edit().putInt("weight", 2).apply()
-            wednesday -> sharedPreferences.edit().putInt("weight", 3).apply()
-            thursday -> sharedPreferences.edit().putInt("weight", 4).apply()
-            friday -> sharedPreferences.edit().putInt("weight", 5).apply()
+        println("ENTERED Set Weight")
+        println(sharedPreferences.all)
+        when(clickedButtonID){
+            weighNoneID.id -> sharedPreferences.edit().putInt("weight", 0).apply()
+            weighMondayID.id  -> sharedPreferences.edit().putInt("weight", 1).apply()
+            weighTuesdayID.id  -> sharedPreferences.edit().putInt("weight", 2).apply()
+            weighWednesdayID.id  -> sharedPreferences.edit().putInt("weight", 3).apply()
+            weightThursdayID.id  -> sharedPreferences.edit().putInt("weight", 4).apply()
+            weighFridayID.id  -> sharedPreferences.edit().putInt("weight", 5).apply()
+            else -> println("NO MATCH THE VALUE IS $clickedButtonID")
         }
         println("CHANGED WEIGHT DAY")
         println(sharedPreferences.all)
