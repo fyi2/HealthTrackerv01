@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         // What to do when a specific menu item is selected.
         if(item?.itemId == R.id.appSettings) {
             val intent = Intent(applicationContext, AppSettings::class.java)
-            intent.putExtra("test", "test")
+            intent.putExtra("main", "From the main screen")
             // startActivity(intent) // Used for simple intents
             startActivityForResult(intent, SETTINGS_CODE)
 

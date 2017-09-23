@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/helpTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings Help"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Medication: Morning, Evening or both?"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:text="Do you fill in your tracker about today, or do you summerize what happned yesterday?" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:text="What day of the week do you prefer to weight yourself?" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Aspect to track allow you to personnize the tracking. If you have Bipolar it will ask you about your excitability. If you struggle with energy you can track naps during the day, and when you get up. If you are giving up smoking you can track how many cigarettes a day, and you can optionally track any alcohol or drugs that you take."
+        android:textSize="18sp" />
+
+</LinearLayout>

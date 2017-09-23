@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tony.healthmonitorv01.activites.AppSettings"
+    tools:context="info.test.tony.healthtrackerv01.activities.AppSettings"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
@@ -12,6 +12,7 @@
         android:id="@+id/settingsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -21,43 +22,42 @@
         android:textColor="@android:color/holo_red_dark"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
+        android:layout_width="121dp"
+        android:layout_height="71dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTitle">
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle"
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="65dp">
 
         <TextView
             android:id="@+id/dayID"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:gravity="left"
-            android:text="Default Day"
-            android:textSize="18sp" />
+            android:gravity="center"
+            android:text="Default Report Day"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <RadioGroup
             android:layout_width="120dp"
             android:layout_height="48dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="96dp"
-            android:layout_toEndOf="@+id/dayID">
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/dayID"
+            android:layout_marginTop="0dp">
 
             <RadioButton
                 android:id="@+id/yesterdayID"
@@ -70,10 +70,10 @@
 
             <RadioButton
                 android:id="@+id/todayID"
-                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:checked="true"
                 android:onClick="onRadioButtonClicked"
                 android:text="Today"
                 android:textSize="12sp" />
@@ -82,42 +82,37 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="340dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="171dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle">
 
         <TextView
             android:id="@+id/medicationID"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:gravity="left"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:text="Medication"
-            android:textSize="18sp" />
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <RadioGroup
-            android:layout_width="120dp"
+            android:layout_width="60dp"
             android:layout_height="48dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="96dp"
-            android:layout_toEndOf="@+id/medicationID">
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
 
             <CheckBox
                 android:id="@+id/amID"
-                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:checked="true"
                 android:onClick="onCheckBoxClicked"
                 android:text="AM"
                 android:textSize="12sp" />
@@ -135,40 +130,215 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="340dp"
-        android:layout_height="33dp"
+        android:id="@+id/relativeLayout"
+        android:layout_width="177dp"
+        android:layout_height="256dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
-        <Switch
-            android:id="@+id/bipolarID"
+        <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="96dp"
-            android:checked="true"
-            android:onClick="onSwitchClicked"
-            android:text="Bipolar  "
-            android:textSize="18sp" />
+            android:layout_centerHorizontal="true"
+            android:text="Weigh in Day" />
+
+        <RadioGroup
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:id="@+id/weightDay"
+            android:layout_below="@+id/textView5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp">
+
+            <RadioButton
+                android:id="@+id/weighNoneID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setWeighDay"
+                android:text="NO!!"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/weighMondayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setWeighDay"
+                android:text="Monday"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/weighTuesdayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setWeighDay"
+                android:text="Tuesday"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/weighWednesdayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setWeighDay"
+                android:text="Wednesday"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/weightThursdayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setWeighDay"
+                android:text="Thursday"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/weighFridayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setWeighDay"
+                android:text="Friday"
+                android:textSize="14sp" />
+        </RadioGroup>
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/trackingID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Aspects to Track"
+        app:layout_constraintEnd_toEndOf="@+id/bipolarID"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+
+
+    <Switch
+        android:id="@+id/bipolarID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        android:checked="false"
+        android:onClick="bipolarSwitch"
+        android:text="Bipolar  "
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trackingID" />
+
+    <Switch
+        android:id="@+id/napID"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:checked="false"
+        android:onClick="napsSwitch"
+        android:text="Naps  "
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/bipolarID"
+        app:layout_constraintTop_toBottomOf="@+id/bipolarID" />
+
+
+    <Switch
+        android:id="@+id/getUpID"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:checked="false"
+        android:onClick="getUpSwitch"
+        android:text="Get Up  "
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/napID"
+        app:layout_constraintTop_toBottomOf="@+id/napID" />
+
+    <Switch
+        android:id="@+id/smokingID"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:checked="false"
+        android:onClick="smokingSwitch"
+        android:text="Smoking  "
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/getUpID"
+        app:layout_constraintTop_toBottomOf="@+id/getUpID" />
+
+    <Switch
+        android:id="@+id/alcoholDrugsID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:checked="false"
+        android:onClick="alcoholSwitch"
+        android:text="Alcohol and Drugs  "
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/smokingID"
+        app:layout_constraintTop_toBottomOf="@+id/smokingID" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="330dp"
+        android:clickable="true"
+        android:onClick="resetPreferences"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/ic_developer_board_black_24dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="175dp"
+        android:clickable="true"
+        android:onClick="settingsHelp"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/ic_help_black_24dp" />
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
+        android:clickable="true"
         android:onClick="settingsHome"
-        app:backgroundTint="@android:color/holo_red_dark"
-        app:srcCompat="@drawable/ic_home_black_24dp"
+        app:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+
+
 
 </android.support.constraint.ConstraintLayout>

@@ -25,7 +25,7 @@
         <EditText
             android:id="@+id/statusDateID"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:ems="10"
@@ -35,13 +35,14 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/enterStatusID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textView4"
             android:layout_centerVertical="true"
             android:backgroundTint="@android:color/holo_green_dark"
             android:text="Enter Status"
+            android:focusableInTouchMode="true"
             android:textColor="@android:color/background_light"
             android:textSize="10sp" />
 
