@@ -13,13 +13,15 @@ import info.test.tony.healthtrackerv01.R
 /**
  * A simple [Fragment] subclass.
  */
-class BlankFragment : Fragment() {
+class Q5Fragment : Fragment() {
 
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_blank, container, false)
+        val RootView : View
+        RootView =  inflater.inflate(R.layout.fragment_q5, container, false)
+        return RootView
     }
 
 }// Required empty public constructor

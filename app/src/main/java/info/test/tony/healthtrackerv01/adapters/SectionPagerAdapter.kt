@@ -1,6 +1,6 @@
 package info.test.tony.healthtrackerv01.adapters
 
-import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import info.test.tony.healthtrackerv01.fragments.BodyFragment
@@ -10,7 +10,7 @@ import android.view.View
 
 
 class SectionPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
-    override fun getItem(position: Int): android.support.v4.app.Fragment? {
+    override fun getItem(position: Int): android.support.v4.app.Fragment {
         when(position){
             0 -> return MindFragment()
             1 -> return BodyFragment()

@@ -2,7 +2,7 @@ package info.test.tony.healthtrackerv01.fragments
 
 
 import android.os.Bundle
-import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
@@ -22,12 +22,12 @@ class Q1Fragment : Fragment()  {
     lateinit var seekBar : SeekBar
     lateinit var anxietyStatus : TextView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
         val RootView : View
-        RootView = inflater.inflate(R.layout.fragment_q1, container, false)
+        RootView = inflater!!.inflate(R.layout.fragment_q1, container, false)
         anxietyStatus = RootView.findViewById(R.id.anxietyStatusID)
         seekBar = RootView.findViewById(R.id.anxietySeekBarID)
         seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{

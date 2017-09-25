@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/irritabilityViewID"
+            android:id="@+id/viewViewID-2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -61,7 +61,7 @@
             android:layout_below="@+id/irritabilityStatusID"
             android:layout_marginTop="17dp"
             android:text="Next"
-            android:onClick="loadQ3"
+            android:onClick="loadNext"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold" />

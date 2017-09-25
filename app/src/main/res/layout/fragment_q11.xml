@@ -1,0 +1,31 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.test.tony.healthtrackerv01.fragments.Q11Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/viewViewID-11"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Fragment WEIGHT"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/viewViewID-11"
+        android:layout_below="@+id/viewViewID-11"
+        android:layout_marginTop="47dp"
+        android:text="Next"
+        android:onClick="loadNext"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</FrameLayout>

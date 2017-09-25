@@ -1,6 +1,12 @@
 package info.test.tony.healthtrackerv01
 
+import android.support.v4.app.Fragment
+import info.test.tony.healthtrackerv01.data.NUM_QUESTIONS
+import info.test.tony.healthtrackerv01.fragments.Q1Fragment
+import info.test.tony.healthtrackerv01.fragments.Q2Fragment
+import info.test.tony.healthtrackerv01.fragments.Q3Fragment
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Globals {
     companion object MentalHealth {
@@ -19,6 +25,10 @@ class Globals {
         var naps: Int? = 0
         var getUpTime: Int? = 0
         var id: Int? = null
+        var switchStatus = IntArray(NUM_QUESTIONS, { 1 })
+        var currentLoadedFragment = 0
+
+
 
         // May need to set up individual getters
         fun returnDepression():Int {
@@ -26,4 +36,5 @@ class Globals {
         }
 
     }
+
 }

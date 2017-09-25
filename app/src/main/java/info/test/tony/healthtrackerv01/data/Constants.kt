@@ -28,3 +28,14 @@ val SETTINGS_CODE: Int = 1 // can be any number
 val REPORT_CODE: Int = 2
 val TEST_CODE: Int = 3
 val STARTSTATUS_CODE: Int = 4
+
+// Number of Question
+val NUM_QUESTIONS = 14
+
+// Positions of optional parameters
+val BIPOLAR_POSN = 3
+val ALCOHOL_DRUGS_POSN = 4
+val NAPS_POSN = 6
+val GET_UP_POSN = 7
+val WEIGHT_POSN = 10
+val SMOKING_POSN = 11
