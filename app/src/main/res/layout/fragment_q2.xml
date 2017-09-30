@@ -28,7 +28,7 @@
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/irritabilityViewID"
+            android:layout_below="@+id/viewViewID-2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="13dp"
             android:thumb="@drawable/ic_touch_app_black_24dp"

@@ -4,27 +4,81 @@
     android:layout_height="match_parent"
     tools:context="info.test.tony.healthtrackerv01.fragments.Q8Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/viewViewID-8"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment GET UP"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/viewViewID-8"
-        android:layout_below="@+id/viewViewID-8"
-        android:layout_marginTop="47dp"
-        android:text="Next"
-        android:onClick="loadNext"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/viewViewID-4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="Get up Time"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/viewViewID-4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp">
+
+            <RadioButton
+                android:id="@+id/gutNone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setGut"
+                android:text="Very Early" />
+
+            <RadioButton
+                android:id="@+id/gutSome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:onClick="setAGut"
+                android:text="on Time" />
+
+            <RadioButton
+                android:id="@+id/gutModerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setGut"
+                android:text="Late" />
+
+            <RadioButton
+                android:id="@+id/gutExcess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setGut"
+                android:text="Very Late" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/radioGroup2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="53dp"
+            android:onClick="loadNext"
+            android:text="Next"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 </FrameLayout>

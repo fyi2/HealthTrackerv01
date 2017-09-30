@@ -5,25 +5,82 @@
     tools:context="info.test.tony.healthtrackerv01.fragments.Q5Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/viewViewID-5"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Alcohol and drugs"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-    <Button
-        android:id="@+id/button"
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/viewViewID-5"
-        android:layout_below="@+id/viewViewID-5"
-        android:layout_marginTop="47dp"
-        android:text="Next"
-        android:onClick="loadNext"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/viewViewID-4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="Drugs or Alcohol"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/viewViewID-4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp">
+
+            <RadioButton
+                android:id="@+id/daNone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:onClick="setAlcohol"
+                android:text="None" />
+
+            <RadioButton
+                android:id="@+id/daSome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setAlcohol"
+                android:text="A little" />
+
+            <RadioButton
+                android:id="@+id/daModerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setAlcohol"
+                android:text="Moderate" />
+
+            <RadioButton
+                android:id="@+id/daExcess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setAlcohol"
+                android:text="Excess" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/radioGroup"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="53dp"
+            android:onClick="loadNext"
+            android:text="Next"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
 </FrameLayout>

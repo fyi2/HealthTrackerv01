@@ -1,29 +1,56 @@
 package info.test.tony.healthtrackerv01.activities
 import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import info.test.tony.healthtrackerv01.Globals
 import info.test.tony.healthtrackerv01.R
+import info.test.tony.healthtrackerv01.adapters.ListRecyclerAdapter
 import info.test.tony.healthtrackerv01.data.*
+import info.test.tony.healthtrackerv01.models.DailyStatus
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.daily_list_item.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    var recyclerAdapter: ListRecyclerAdapter? = null
+    var dailyStatusList : ArrayList<DailyStatus>? = null
+    var layoutManager : RecyclerView.LayoutManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        dailyStatusList = ArrayList<DailyStatus>()
+        layoutManager = LinearLayoutManager(this)
+        recyclerAdapter = ListRecyclerAdapter(this, dailyStatusList!!)
+
+        // Set up Recyler View
+        recyclerViewID.layoutManager = layoutManager
+        recyclerViewID.adapter = recyclerAdapter
+
+        // load data
+        for (i in 0..9) {
+            val dailyStatus = DailyStatus()
+            var rand : Random = Random()
+            dailyStatus.mood = rand.nextInt(25 - 10 + 1) + 10.0
+            val calendar = Calendar.getInstance()
+            dailyStatus.date = calendar.timeInMillis
+            dailyStatusList!!.add(dailyStatus)
+        }
+        recyclerAdapter!!.notifyDataSetChanged()
+
+
+
+
+
     }
-
-
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Attach the menu to the main activity
@@ -65,6 +92,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
         if(requestCode == TEST_CODE){
+            if(resultCode == Activity.RESULT_OK){
+                var result = data!!.extras.get("return").toString()
+                Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            }
+        }
+        if(requestCode == STARTSTATUS_CODE){
             if(resultCode == Activity.RESULT_OK){
                 var result = data!!.extras.get("return").toString()
                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show()

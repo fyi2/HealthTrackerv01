@@ -4,28 +4,48 @@
     android:layout_height="match_parent"
     tools:context="info.test.tony.healthtrackerv01.fragments.Q13Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
     <TextView
         android:id="@+id/viewViewID-13"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment MOOD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="Overall Mood"
+        android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/viewViewID-13"
+        android:layout_marginStart="60dp"
+        android:rating="2.5"
+        android:onClick="moodStars"
+        android:layout_marginTop="32dp"/>
 
     <Button
         android:id="@+id/button"
         style="@android:style/Widget.DeviceDefault.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/viewViewID-13"
-        android:layout_below="@+id/viewViewID-13"
-        android:layout_marginTop="47dp"
+        android:layout_alignEnd="@+id/ratingBar2"
+        android:layout_below="@+id/ratingBar2"
+        android:layout_marginTop="24dp"
         android:text="Next"
         android:onClick="loadNext"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    </RelativeLayout>
 
 </FrameLayout>

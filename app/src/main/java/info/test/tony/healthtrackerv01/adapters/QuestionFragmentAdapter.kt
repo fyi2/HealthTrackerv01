@@ -3,17 +3,18 @@ package info.test.tony.healthtrackerv01.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import info.test.tony.healthtrackerv01.Globals
+import info.test.tony.healthtrackerv01.data.Globals
 import info.test.tony.healthtrackerv01.data.NUM_QUESTIONS
 import info.test.tony.healthtrackerv01.fragments.*
-import java.util.*
 
 
-class QuestionPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+
+// Fragment Adapter
+
+class QuestionFragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     val mh = Globals.MentalHealth
 
     override fun getItem(position: Int): Fragment {
-        println("QUESTION PAGER ADAPTER called")
         var myPosition: Int = position
         mh.currentLoadedFragment = myPosition
         myPosition = myMapPosition(position)
@@ -39,10 +40,12 @@ class QuestionPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) 
     }
 
     override fun getCount(): Int {
-        return NUM_QUESTIONS // Manual need a programatic solution for 20 Questions
+        // Stored in a Global Variable as mutable due to user settings configuration
+        return mh.maxScreens
     }
 
     fun myMapPosition(position: Int): Int{
+        // Work out the next page based on the order dictated by the settings flags
         val mh = Globals.MentalHealth
         val switches = mh.switchStatus
         var newPosition: Int = position
@@ -56,6 +59,7 @@ class QuestionPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) 
                 screenNumber++
             }
         }
+        mh.maxScreens = screenNumber // Reset the maximum number of screens
         for(i in screenNumber..NUM_QUESTIONS-1){
             pages[i] = NUM_QUESTIONS - 1
         }

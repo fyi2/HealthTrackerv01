@@ -4,27 +4,81 @@
     android:layout_height="match_parent"
     tools:context="info.test.tony.healthtrackerv01.fragments.Q6Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/viewViewID-6"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Medication"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/viewViewID-6"
-        android:layout_below="@+id/viewViewID-6"
-        android:layout_marginTop="47dp"
-        android:text="Next"
-        android:onClick="loadNext"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/viewViewID-6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="MEDICATION"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
+
+        <TextView
+            android:id="@+id/medicationTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/viewViewID-6"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="24dp"
+            android:text="AM Meds" />
+
+
+        <TextView
+            android:id="@+id/medicationTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/medicationTextView1"
+            android:layout_below="@+id/medicationTextView1"
+            android:layout_marginTop="60dp"
+            android:text="PM Meds" />
+
+
+
+        <Button
+            android:id="@+id/nextButton6"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toggleButton4"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/toggleButton4"
+            android:onClick="loadNext"
+            android:text="Next"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/viewViewID-6"
+            android:layout_alignTop="@+id/medicationTextView1"
+            android:textOn="Took Meds"
+            android:textOff="Missed Meds"
+            android:onClick="setMeds"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/toggleButton3"
+            android:layout_alignTop="@+id/medicationTextView2"
+            android:textOn="Took Meds"
+            android:textOff="Missed Meds"
+            android:onClick="setMeds"/>
+
+
+    </RelativeLayout>
 </FrameLayout>

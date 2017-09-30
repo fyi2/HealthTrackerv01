@@ -3,14 +3,17 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="anxiety_text">fred</string>
     <string name="test">1. None\n
     2. Mild\n
     3. Moderate\n
     4. Bad\n
     5. Severe/Debilitating</string>
-    <string name="t2">Second TextView value</string>
     <string name="anxiety_status">How are you feeling today?</string>
+    <string name="highEnergy">1. Calm\n
+    2. Excited\n
+    3. Unstoppable\n
+    4. Non stop High\n
+    5. Manic High</string>
 
 
 </resources>

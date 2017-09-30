@@ -48,11 +48,6 @@ class AppSettings : AppCompatActivity() {
             sharedPreferences.edit().putInt("medication", medicationDefault).apply()
             sharedPreferences.edit().putInt("weight", weighDayDefault).apply()
             sharedPreferences.edit().putString("initialized", "initialized").apply()
-            println("PRINT:Initializing Preferences")
-            println(sharedPreferences.all)
-        } else {
-            println("PRINT:Preferences already there")
-            println(sharedPreferences.all)
         }
         // Read the preferences and set the respective widgets
         var yesterdaySetting = sharedPreferences.getBoolean("yesterday", true)
@@ -99,7 +94,6 @@ class AppSettings : AppCompatActivity() {
                 weighFriday.isChecked = true
             }
         }
-        println(sharedPreferences.all)
         // Set the Medication
         var amBox: CheckBox = findViewById(R.id.amID)
         var pmBox: CheckBox = findViewById(R.id.pmID)
@@ -142,11 +136,8 @@ class AppSettings : AppCompatActivity() {
         var alcoholBox: Switch = findViewById(R.id.alcoholDrugsID)
         alcoholBox.isChecked = alcoholSetting
 
-        println(sharedPreferences.all)
-
-
-
     }
+
     fun onRadioButtonClicked (view: View) {
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
         view as RadioButton
@@ -155,15 +146,11 @@ class AppSettings : AppCompatActivity() {
         when (view.id) {
             R.id.yesterdayID -> if(isChecked){
                 sharedPreferences.edit().putBoolean("yesterday", true).apply()
-                println("Yesterday Checked")
-                println(sharedPreferences.all)
             } else{
                 sharedPreferences.edit().putBoolean("yesterday", false).apply()
             }
             R.id.todayID -> if(isChecked){
                 sharedPreferences.edit().putBoolean("yesterday", false).apply()
-                println("Today Checked")
-                println(sharedPreferences.all)
             }
         }
     }
@@ -179,8 +166,6 @@ class AppSettings : AppCompatActivity() {
             medicationValue += 2
         }
         sharedPreferences.edit().putInt("medication", medicationValue).apply()
-        println("medication vale is $medicationValue")
-        println(sharedPreferences.all)
     }
     // Set the weight
     fun setWeighDay(view: View) {
@@ -199,8 +184,6 @@ class AppSettings : AppCompatActivity() {
             weighFridayID.id  -> sharedPreferences.edit().putInt("weight", 5).apply()
             else -> println("NO MATCH THE VALUE IS $clickedButtonID")
         }
-        println("CHANGED WEIGHT DAY")
-        println(sharedPreferences.all)
     }
 
 
@@ -214,8 +197,6 @@ class AppSettings : AppCompatActivity() {
             switchState = true
         }
         sharedPreferences.edit().putBoolean("bipolar", switchState).apply()
-        println("Bipolar is $switchState")
-        println(sharedPreferences.all)
     }
     fun napsSwitch(view: View){
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
@@ -227,8 +208,6 @@ class AppSettings : AppCompatActivity() {
             switchState = true
         }
         sharedPreferences.edit().putBoolean("naps", switchState).apply()
-        println("Nap is $switchState")
-        println(sharedPreferences.all)
     }
     fun getUpSwitch(view: View){
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
@@ -240,8 +219,6 @@ class AppSettings : AppCompatActivity() {
             switchState = true
         }
         sharedPreferences.edit().putBoolean("getUp", switchState).apply()
-        println("Get Up is $switchState")
-        println(sharedPreferences.all)
     }
     fun smokingSwitch(view: View){
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
@@ -253,8 +230,6 @@ class AppSettings : AppCompatActivity() {
             switchState = true
         }
         sharedPreferences.edit().putBoolean("smoking", switchState).apply()
-        println("Smoking is $switchState")
-        println(sharedPreferences.all)
     }
     fun alcoholSwitch(view: View){
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
@@ -266,15 +241,11 @@ class AppSettings : AppCompatActivity() {
             switchState = true
         }
         sharedPreferences.edit().putBoolean("alcohol", switchState).apply()
-        println("Alcohol is $switchState")
-        println(sharedPreferences.all)
     }
     fun resetPreferences(view: View) {
         val sharedPreferences: SharedPreferences = getSharedPreferences("info.test.tony.healthtrackerv01", android.content.Context.MODE_PRIVATE)
         println(sharedPreferences.all)
         sharedPreferences.edit().clear().commit()
-        println("NOW I HAVE reset the preferences")
-        println(sharedPreferences.all)
     }
     fun settingsHome(view: View) {
         var intent = Intent(this, MainActivity::class.java)

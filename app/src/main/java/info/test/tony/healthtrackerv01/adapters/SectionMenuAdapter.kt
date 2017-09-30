@@ -8,8 +8,8 @@ import info.test.tony.healthtrackerv01.fragments.HeartFragment
 import info.test.tony.healthtrackerv01.fragments.MindFragment
 import android.view.View
 
-
-class SectionPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
+// Menu Adapter
+class SectionMenuAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): android.support.v4.app.Fragment {
         when(position){
             0 -> return MindFragment()

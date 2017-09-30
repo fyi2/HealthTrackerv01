@@ -5,26 +5,67 @@
     tools:context="info.test.tony.healthtrackerv01.fragments.Q4Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/viewViewID-4"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Bi Polar"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/viewViewID-4"
-        android:layout_below="@+id/viewViewID-4"
-        android:layout_marginTop="47dp"
-        android:text="Next"
-        android:onClick="loadNext"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/viewViewID-4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="Bi Polar"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
+        <SeekBar
+            android:id="@+id/bipolarSeekBarID"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewViewID-4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:thumb="@drawable/ic_touch_app_black_24dp"
+            android:max="5"
+            android:progress="1" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bipolarSeekBarID"
+            android:layout_marginTop="18dp"
+            android:text="@string/highEnergy" />
+
+        <TextView
+            android:id="@+id/bipolarStatusID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView12"
+            android:layout_marginTop="18dp"
+            android:text="@string/anxiety_status" />
+
+        <Button
+            android:id="@+id/bipolarButtonID"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/bipolarSeekBarID"
+            android:layout_below="@+id/bipolarStatusID"
+            android:layout_marginTop="30dp"
+            android:text="Next"
+            android:onClick="loadNext"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+    
 </FrameLayout>

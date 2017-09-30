@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import info.test.tony.healthtrackerv01.R
-import info.test.tony.healthtrackerv01.adapters.SectionPagerAdapter
+import info.test.tony.healthtrackerv01.adapters.SectionMenuAdapter
 import kotlinx.android.synthetic.main.activity_tabbed_report.*
 
 
@@ -16,13 +16,13 @@ class TabbedReport : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var sectionAdapter: SectionPagerAdapter
+        var sectionAdapter: SectionMenuAdapter
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabbed_report)
 //        setSupportActionBar(toolbar)
 
-        sectionAdapter = SectionPagerAdapter(supportFragmentManager)
+        sectionAdapter = SectionMenuAdapter(supportFragmentManager)
         viewPagerID.adapter = sectionAdapter
         tabs.setupWithViewPager(viewPagerID)
         tabs.setTabTextColors(Color.WHITE, Color.GREEN)

@@ -39,6 +39,4 @@ class HealthStatus() {
         this.getUpTime = getUpTime
         this.id = id
     }
-
-
 }

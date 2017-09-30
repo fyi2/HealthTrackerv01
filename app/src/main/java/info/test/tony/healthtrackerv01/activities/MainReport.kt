@@ -5,19 +5,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import info.test.tony.healthtrackerv01.R
-import info.test.tony.healthtrackerv01.data.HealthTrackerDatabaseHandler
+import info.test.tony.healthtrackerv01.data.TrackerdBHandler
 import info.test.tony.healthtrackerv01.models.HealthStatus
+import kotlinx.android.synthetic.main.activity_main_report.*
 
 class MainReport : AppCompatActivity() {
 
     val REPORT1_CODE: Int = 4 // Activity Intent Code
-    var dbHandler: HealthTrackerDatabaseHandler? = null
+    var dbHandler: TrackerdBHandler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_report)
+
+        dbHandler = TrackerdBHandler(this)
+        var recordCount = dbHandler!!.getStatusCount()
+        var recordCountText : TextView = recordCountID
+        recordCountText.text = recordCount.toString()
     }
 
     fun settingsHome(view: View) {
@@ -51,7 +58,7 @@ class MainReport : AppCompatActivity() {
         }
     }
     fun addRecord(view: View){
-        dbHandler = HealthTrackerDatabaseHandler(this)
+        dbHandler = TrackerdBHandler(this)
 
         var healthStatus = HealthStatus()
         healthStatus.depression = 1
@@ -69,10 +76,15 @@ class MainReport : AppCompatActivity() {
         healthStatus.getUpTime = 0
 
         dbHandler!!.createStatus(healthStatus)
+        var recordCount = dbHandler!!.getStatusCount()
+        var recordCountText : TextView = recordCountID
+
+        recordCountText.text = recordCount.toString()
+
 
         // and read the first record to test
         var healthStatii: HealthStatus = dbHandler!!.readStatus(1)
-        println("DEPRESSION = "+healthStatii.depression)
+
 
 
     }

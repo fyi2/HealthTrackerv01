@@ -4,28 +4,60 @@
     android:layout_height="match_parent"
     tools:context="info.test.tony.healthtrackerv01.fragments.Q11Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/viewViewID-11"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment WEIGHT"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/viewViewID-11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="Weight"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/button"
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/viewViewID-11"
-        android:layout_below="@+id/viewViewID-11"
-        android:layout_marginTop="47dp"
-        android:text="Next"
-        android:onClick="loadNext"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/viewViewID-11"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="Weight in Lbs" />
 
+        <EditText
+            android:id="@+id/editDouble-11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView9"
+            android:layout_below="@+id/textView11"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:text="0.0"
+            android:inputType="numberDecimal" />
+
+
+        <Button
+            android:id="@+id/nextButton11"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editDouble-11"
+            android:layout_marginTop="24dp"
+            android:layout_toEndOf="@+id/editDouble-11"
+            android:onClick="loadNext"
+            android:text="Next"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
 </FrameLayout>

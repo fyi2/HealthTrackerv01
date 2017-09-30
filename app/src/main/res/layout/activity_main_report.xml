@@ -160,6 +160,15 @@
             android:text="Add Record"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/recordCountID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/addRecord"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/addRecord"
+            android:text="000" />
+
     </RelativeLayout>
 
 

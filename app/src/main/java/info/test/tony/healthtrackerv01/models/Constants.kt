@@ -1,7 +1,7 @@
 package info.test.tony.healthtrackerv01.models
 
 
-val DATABASE_VERSION : Int = 1
+val DATABASE_VERSION : Int = 2
 val DATABASE_NAME: String = "healthtracker.db"
 val TABLE_NAME: String = "tracker"
 

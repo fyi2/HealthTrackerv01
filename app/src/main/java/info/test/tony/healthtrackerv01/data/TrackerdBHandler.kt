@@ -12,7 +12,7 @@ import info.test.tony.healthtrackerv01.models.*
 
 
 
-class HealthTrackerDatabaseHandler(context: Context):
+class TrackerdBHandler(context: Context):
         SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -21,7 +21,7 @@ class HealthTrackerDatabaseHandler(context: Context):
                 KEY_ANXIETY+ " INTEGER, "+
                 KEY_IRRITABLE+ " INTEGER, "+
                 KEY_ALCOHOLDRUGS+ " INTEGER, "+
-                KEY_ENTRYDATE+ " DATE, "+
+                KEY_ENTRYDATE+ " LONG, "+
                 KEY_WEIGHT+ " DOUBLE PRECISION, "+
                 KEY_EXCERCISE+ " INTEGER, "+
                 KEY_EXCITABILITY+ " INTEGER, "+
@@ -40,29 +40,31 @@ class HealthTrackerDatabaseHandler(context: Context):
         //create table again
         onCreate(db)
     }
+
+    fun deleteDatabase() {
+
+    }
     // CRUD
     fun createStatus(healthStatus: HealthStatus) {
         var db: SQLiteDatabase = writableDatabase
-        var values: ContentValues = ContentValues()
+        var valuesHS: ContentValues = ContentValues()
 
-        values.put(KEY_ALCOHOLDRUGS, healthStatus.alcoholDrugs)
-        values.put(KEY_ANXIETY, healthStatus.anxiety)
-        values.put(KEY_DEPRESSION, healthStatus.depression)
-        values.put(KEY_ENTRYDATE, healthStatus.entryDate)
-        values.put(KEY_EXCERCISE, healthStatus.excercise)
-        values.put(KEY_EXCITABILITY, healthStatus.excitability)
-        values.put(KEY_GETUPTIME, healthStatus.getUpTime)
-        values.put(KEY_IRRITABLE, healthStatus.irritable)
-        values.put(KEY_MEDS, healthStatus.meds)
-        values.put(KEY_MOOD, healthStatus.mood)
-        values.put(KEY_NAPS, healthStatus.naps)
-        values.put(KEY_SLEEP, healthStatus.sleep)
-        values.put(KEY_SMOKING, healthStatus.smoking)
-        values.put(KEY_WEIGHT, healthStatus.weight)
+        valuesHS.put(KEY_ALCOHOLDRUGS, healthStatus.alcoholDrugs)
+        valuesHS.put(KEY_ANXIETY, healthStatus.anxiety)
+        valuesHS.put(KEY_DEPRESSION, healthStatus.depression)
+        valuesHS.put(KEY_ENTRYDATE, healthStatus.entryDate)
+        valuesHS.put(KEY_EXCERCISE, healthStatus.excercise)
+        valuesHS.put(KEY_EXCITABILITY, healthStatus.excitability)
+        valuesHS.put(KEY_GETUPTIME, healthStatus.getUpTime)
+        valuesHS.put(KEY_IRRITABLE, healthStatus.irritable)
+        valuesHS.put(KEY_MEDS, healthStatus.meds)
+        valuesHS.put(KEY_MOOD, healthStatus.mood)
+        valuesHS.put(KEY_NAPS, healthStatus.naps)
+        valuesHS.put(KEY_SLEEP, healthStatus.sleep)
+        valuesHS.put(KEY_SMOKING, healthStatus.smoking)
+        valuesHS.put(KEY_WEIGHT, healthStatus.weight)
 
-        db.insert(TABLE_NAME, null, values)
-        println("DATA SUCCESS INSERT")
-
+        db.insert(TABLE_NAME, null, valuesHS)
         db.close()
 
     }
@@ -133,25 +135,25 @@ class HealthTrackerDatabaseHandler(context: Context):
 
     fun updateStatus(healthStatus: HealthStatus): Int {
         var db: SQLiteDatabase = writableDatabase
-        var values: ContentValues = ContentValues()
+        var valuesHS: ContentValues = ContentValues()
 
-        values.put(KEY_ALCOHOLDRUGS, healthStatus.alcoholDrugs)
-        values.put(KEY_ANXIETY, healthStatus.anxiety)
-        values.put(KEY_DEPRESSION, healthStatus.depression)
-        values.put(KEY_ENTRYDATE, healthStatus.entryDate)
-        values.put(KEY_EXCERCISE, healthStatus.excercise)
-        values.put(KEY_EXCITABILITY, healthStatus.excitability)
-        values.put(KEY_GETUPTIME, healthStatus.getUpTime)
-        values.put(KEY_IRRITABLE, healthStatus.irritable)
-        values.put(KEY_MEDS, healthStatus.meds)
-        values.put(KEY_MOOD, healthStatus.mood)
-        values.put(KEY_NAPS, healthStatus.naps)
-        values.put(KEY_SLEEP, healthStatus.sleep)
-        values.put(KEY_SMOKING, healthStatus.smoking)
-        values.put(KEY_WEIGHT, healthStatus.weight)
+        valuesHS.put(KEY_ALCOHOLDRUGS, healthStatus.alcoholDrugs)
+        valuesHS.put(KEY_ANXIETY, healthStatus.anxiety)
+        valuesHS.put(KEY_DEPRESSION, healthStatus.depression)
+        valuesHS.put(KEY_ENTRYDATE, healthStatus.entryDate)
+        valuesHS.put(KEY_EXCERCISE, healthStatus.excercise)
+        valuesHS.put(KEY_EXCITABILITY, healthStatus.excitability)
+        valuesHS.put(KEY_GETUPTIME, healthStatus.getUpTime)
+        valuesHS.put(KEY_IRRITABLE, healthStatus.irritable)
+        valuesHS.put(KEY_MEDS, healthStatus.meds)
+        valuesHS.put(KEY_MOOD, healthStatus.mood)
+        valuesHS.put(KEY_NAPS, healthStatus.naps)
+        valuesHS.put(KEY_SLEEP, healthStatus.sleep)
+        valuesHS.put(KEY_SMOKING, healthStatus.smoking)
+        valuesHS.put(KEY_WEIGHT, healthStatus.weight)
 
         // Update a Row
-        return db.update(TABLE_NAME, values, KEY_ID+"=?", arrayOf(healthStatus.id.toString()))
+        return db.update(TABLE_NAME, valuesHS, KEY_ID+"=?", arrayOf(healthStatus.id.toString()))
 
 
 

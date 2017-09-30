@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/viewViewID-1"
+            android:id="@+id/anxietyViewID-1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -28,7 +28,7 @@
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/anxietyViewID"
+            android:layout_below="@+id/anxietyViewID-1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="13dp"
             android:thumb="@drawable/ic_touch_app_black_24dp"

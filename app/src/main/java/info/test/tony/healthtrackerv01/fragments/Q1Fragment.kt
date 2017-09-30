@@ -3,16 +3,14 @@ package info.test.tony.healthtrackerv01.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
-import info.test.tony.healthtrackerv01.Globals
+import info.test.tony.healthtrackerv01.data.Globals
 
 import info.test.tony.healthtrackerv01.R
-import kotlinx.android.synthetic.main.fragment_q1.*
 
 
 /**
@@ -58,10 +56,6 @@ class Q1Fragment : Fragment()  {
             }
         })
         return RootView
-    }
-
-    fun setTextView(value:String){
-        anxietyStatus.text = value.toString()
     }
 
 }

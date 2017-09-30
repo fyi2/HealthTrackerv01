@@ -35,6 +35,7 @@ val NUM_QUESTIONS = 14
 // Positions of optional parameters
 val BIPOLAR_POSN = 3
 val ALCOHOL_DRUGS_POSN = 4
+val MEDS_POSN = 5
 val NAPS_POSN = 6
 val GET_UP_POSN = 7
 val WEIGHT_POSN = 10
