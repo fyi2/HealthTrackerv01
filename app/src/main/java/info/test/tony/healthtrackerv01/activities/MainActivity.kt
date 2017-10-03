@@ -13,37 +13,61 @@ import info.test.tony.healthtrackerv01.R
 import info.test.tony.healthtrackerv01.adapters.ListRecyclerAdapter
 import info.test.tony.healthtrackerv01.data.*
 import info.test.tony.healthtrackerv01.models.DailyStatus
+import info.test.tony.healthtrackerv01.models.HealthStatus
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.daily_list_item.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+    var dbHandler: TrackerdBHandler? = null
     var recyclerAdapter: ListRecyclerAdapter? = null
-    var dailyStatusList : ArrayList<DailyStatus>? = null
+    //var dailyStatusList : ArrayList<DailyStatus>? = null
+    var healthStatus: ArrayList<HealthStatus>? = null
+    var healthStatusItems: ArrayList<HealthStatus>? = null
     var layoutManager : RecyclerView.LayoutManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        dbHandler = TrackerdBHandler(this)
 
-        dailyStatusList = ArrayList<DailyStatus>()
+        healthStatus = ArrayList<HealthStatus>()
+        healthStatusItems = ArrayList()
         layoutManager = LinearLayoutManager(this)
-        recyclerAdapter = ListRecyclerAdapter(this, dailyStatusList!!)
+        recyclerAdapter = ListRecyclerAdapter(this, healthStatusItems!!)
 
         // Set up Recyler View
         recyclerViewID.layoutManager = layoutManager
         recyclerViewID.adapter = recyclerAdapter
 
         // load data
-        for (i in 0..9) {
-            val dailyStatus = DailyStatus()
-            var rand : Random = Random()
-            dailyStatus.mood = rand.nextInt(25 - 10 + 1) + 10.0
-            val calendar = Calendar.getInstance()
-            dailyStatus.date = calendar.timeInMillis
-            dailyStatusList!!.add(dailyStatus)
+        healthStatus = dbHandler!!.readAllStatus()
+        healthStatus!!.reverse()
+
+        for(h in healthStatus!!.iterator()){
+            val health = HealthStatus()
+
+            health.entryDate = h.entryDate
+            health.alcoholDrugs = h.alcoholDrugs
+            health.anxiety = h.anxiety
+            health.depression = h.depression
+            health.excercise = h.excercise
+            health.excitability = h.excitability
+            health.getUpTime = h.getUpTime
+            health.id = h.id
+            health.irritable = h.irritable
+            health.meds = h.meds
+            health.mood = h.mood
+            health.naps = h.naps
+            health.sleep = h.sleep
+            health.smoking = h.smoking
+            health.weight = h.weight
+
+            healthStatusItems!!.add(health)
         }
+
         recyclerAdapter!!.notifyDataSetChanged()
 
 
@@ -103,6 +127,12 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
             }
         }
+        if(requestCode == DETAILS_CODE){
+            if(resultCode == Activity.RESULT_OK){
+                var result = data!!.extras.get("return").toString()
+                Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     fun reportHome(view: View) {
@@ -122,5 +152,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, TestActivity::class.java)
         intent.putExtra("main", "From Main Screen")
         startActivityForResult(intent, TEST_CODE)
+    }
+    fun showStatus(view: View){
+        val intent = Intent(applicationContext, TestActivity::class.java)
+        intent.putExtra("main", "From Main Screen show icon")
+        startActivityForResult(intent, DETAILS_CODE)
     }
 }

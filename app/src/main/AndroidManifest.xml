@@ -21,6 +21,7 @@
         <activity android:name=".activities.TabbedReport" />
         <activity android:name=".activities.TestActivity" />
         <activity android:name=".activities.AddStatus" />
+        <activity android:name=".activities.ShowDetailsActivity"></activity>
     </application>
 
 </manifest>

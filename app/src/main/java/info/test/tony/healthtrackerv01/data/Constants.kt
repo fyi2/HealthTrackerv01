@@ -28,6 +28,7 @@ val SETTINGS_CODE: Int = 1 // can be any number
 val REPORT_CODE: Int = 2
 val TEST_CODE: Int = 3
 val STARTSTATUS_CODE: Int = 4
+val DETAILS_CODE: Int = 5
 
 // Number of Question
 val NUM_QUESTIONS = 14

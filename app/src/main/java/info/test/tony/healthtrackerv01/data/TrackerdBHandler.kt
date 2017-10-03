@@ -158,10 +158,10 @@ class TrackerdBHandler(context: Context):
 
 
     }
-    fun deleteStatus(healthStatus: HealthStatus){
+    fun deleteStatus(id: Int){
         var db: SQLiteDatabase = writableDatabase
 
-        db.delete(TABLE_NAME, KEY_ID+"=?", arrayOf(healthStatus.id.toString()))
+        db.delete(TABLE_NAME, KEY_ID+"=?", arrayOf(id.toString()))
         db.close()
     }
 
