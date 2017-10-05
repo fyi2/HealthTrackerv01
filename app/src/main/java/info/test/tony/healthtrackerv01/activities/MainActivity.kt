@@ -70,11 +70,40 @@ class MainActivity : AppCompatActivity() {
 
         recyclerAdapter!!.notifyDataSetChanged()
 
-
-
-
-
     }
+    fun setAdapter(){
+
+        // Reset list
+        healthStatusItems!!.clear()
+
+        // load data
+        healthStatus = dbHandler!!.readAllStatus()
+        healthStatus!!.reverse()
+
+        for(h in healthStatus!!.iterator()){
+            val health = HealthStatus()
+
+            health.entryDate = h.entryDate
+            health.alcoholDrugs = h.alcoholDrugs
+            health.anxiety = h.anxiety
+            health.depression = h.depression
+            health.excercise = h.excercise
+            health.excitability = h.excitability
+            health.getUpTime = h.getUpTime
+            health.id = h.id
+            health.irritable = h.irritable
+            health.meds = h.meds
+            health.mood = h.mood
+            health.naps = h.naps
+            health.sleep = h.sleep
+            health.smoking = h.smoking
+            health.weight = h.weight
+
+            healthStatusItems!!.add(health)
+        }
+        recyclerAdapter!!.notifyDataSetChanged()
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Attach the menu to the main activity
@@ -125,6 +154,8 @@ class MainActivity : AppCompatActivity() {
             if(resultCode == Activity.RESULT_OK){
                 var result = data!!.extras.get("return").toString()
                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+                recyclerAdapter!!.notifyDataSetChanged()
+                setAdapter()
             }
         }
         if(requestCode == DETAILS_CODE){

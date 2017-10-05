@@ -28,8 +28,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/viewViewID-13"
         android:layout_marginStart="60dp"
+        android:clickable="true"
         android:rating="2.5"
-        android:onClick="moodStars"
         android:layout_marginTop="32dp"/>
 
     <Button

@@ -14,6 +14,7 @@ import info.test.tony.healthtrackerv01.R
 import info.test.tony.healthtrackerv01.adapters.QuestionFragmentAdapter
 import info.test.tony.healthtrackerv01.data.*
 import info.test.tony.healthtrackerv01.models.HealthStatus
+import kotlinx.android.synthetic.main.fragment_q13.*
 import kotlinx.android.synthetic.main.fragment_top.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -45,6 +46,7 @@ class AddStatus : AppCompatActivity() {
         }
         var calendar: Calendar = Calendar.getInstance()
         calendar.add(Calendar.DATE, calendarOffset)
+        mh.entryDate = calendar.timeInMillis
         val dateFormat: DateFormat = SimpleDateFormat("MM/dd/yyy")
         statusDateID.setText("Date: " + dateFormat.format(calendar.time))
 
@@ -100,22 +102,24 @@ class AddStatus : AppCompatActivity() {
 
     fun changeDate(view: View) {
 
-        var currentDate: Calendar = Calendar.getInstance()
-        var thisAYear = currentDate.get(Calendar.YEAR).toInt()
-        var thisAMonth = currentDate.get(Calendar.MONTH).toInt()
-        var thisADay = currentDate.get(Calendar.DAY_OF_MONTH).toInt()
+        var date: Calendar = Calendar.getInstance()
+        var thisAYear = date.get(Calendar.YEAR).toInt()
+        var thisAMonth = date.get(Calendar.MONTH).toInt()
+        var thisADay = date.get(Calendar.DAY_OF_MONTH).toInt()
 
         val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view2, thisYear, thisMonth, thisDay ->
             // Display Selected date in textbox
             thisAMonth = thisMonth + 1
             thisADay = thisDay
             thisAYear = thisYear
+
             statusDateID.setText("Date: " + thisAMonth + "/" + thisDay + "/" + thisYear)
+            val newDate:Calendar =Calendar.getInstance()
+            newDate.set(thisYear, thisMonth, thisDay)
+            mh.entryDate = newDate.timeInMillis
+
         }, thisAYear, thisAMonth, thisADay)
         dpd.show()
-        currentDate.set(thisAYear,thisAMonth, thisADay)
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH)
-        mh.entryDate = currentDate.timeInMillis
     }
 
 
@@ -297,11 +301,7 @@ class AddStatus : AppCompatActivity() {
             cigarettes.requestFocus()
         }
     }
-    fun moodStars (view: View){
-        view as RatingBar
-        var mood : RatingBar = findViewById(R.id.ratingBar2)
-        mh.mood = mood.rating.toDouble()
-    }
+
     fun updateDatabase(view: View) {
         dbHandler = TrackerdBHandler(this)
         printGlobals()
@@ -327,6 +327,7 @@ class AddStatus : AppCompatActivity() {
 
         // close database
         var insert = dbHandler!!.createStatus(healthStatus)
+
         // return from intent
 
         returnIntent.putExtra("return", "return from Adding a Status")
