@@ -5,6 +5,7 @@ val DATABASE_VERSION : Int = 1
 val DATABASE_NAME: String = "healthtracker.db"
 val TABLE_NAME: String = "tracker"
 
+
 //Column names
 val KEY_ID: String = "id"
 val KEY_DEPRESSION:String = "depression"

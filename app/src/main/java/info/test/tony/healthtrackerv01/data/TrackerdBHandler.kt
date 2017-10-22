@@ -65,7 +65,7 @@ class TrackerdBHandler(context: Context):
         valuesHS.put(KEY_WEIGHT, healthStatus.weight)
 
         db.insert(TABLE_NAME, null, valuesHS)
-        db.close()
+        //db.close()
         return
     }
     fun readStatus(id: Int): HealthStatus {
@@ -98,7 +98,7 @@ class TrackerdBHandler(context: Context):
         var formattedDate = dateFormat.format(Date(cursor.
                 getLong(cursor.getColumnIndex(KEY_ENTRYDATE))).time)
 
-        db.close()
+       //db.close()
         return healthStatus
     }
     fun readAllStatus(): ArrayList<HealthStatus> {
@@ -131,7 +131,7 @@ class TrackerdBHandler(context: Context):
                 list.add(healthStatus)
             } while (cursor.moveToNext())
         }
-        db.close()
+        //db.close()
         return list
     }
 
@@ -156,7 +156,7 @@ class TrackerdBHandler(context: Context):
 
         // Update a Row
         val result = db.update(TABLE_NAME, valuesHS, KEY_ID+"=?", arrayOf(healthStatus.id.toString()))
-        db.close()
+        //db.close()
         return result
     }
     fun deleteStatus(id: Int){
@@ -171,7 +171,7 @@ class TrackerdBHandler(context: Context):
         var countQuery = "SELECT * FROM "+ TABLE_NAME
         var cursor: Cursor = db.rawQuery(countQuery, null)
 
-        db.close()
+        //db.close()
         return cursor.count
 
     }
